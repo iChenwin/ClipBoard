@@ -40,9 +40,7 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUserDefaults *lastUserDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *lastData = [lastUserDefaults objectForKey:@"clipArr"];
-    NSArray *clipArr = [NSKeyedUnarchiver unarchiveObjectWithData:lastData];
+    NSArray *clipArr = [self getSavedClipArr];
     UITableViewCell *lastCell = [clipArr lastObject];
     if ([lastCell.textLabel.text isEqualToString:[UIPasteboard generalPasteboard].string]) {
         return [clipArr count];
@@ -52,9 +50,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUserDefaults *lastUserDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *lastData = [lastUserDefaults objectForKey:@"clipArr"];
-    NSMutableArray *clipArr = [NSKeyedUnarchiver unarchiveObjectWithData:lastData];
+    NSMutableArray *clipArr = [self getSavedClipArr];
     NSArray* reversedArray = [[clipArr reverseObjectEnumerator] allObjects];
     UITableViewCell *lastCell = [reversedArray firstObject];
     if ([lastCell.textLabel.text isEqualToString:[UIPasteboard generalPasteboard].string]) {
@@ -91,9 +87,7 @@
 }
 
 -(void)addAction:(UIGestureRecognizer *)sender {
-    NSUserDefaults *lastUserDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *lastData = [lastUserDefaults objectForKey:@"clipArr"];
-    NSArray *clipArr = [NSKeyedUnarchiver unarchiveObjectWithData:lastData];
+    NSArray *clipArr = [self getSavedClipArr];
     UITableViewCell *lastCell = [clipArr lastObject];
     if ([lastCell.textLabel.text isEqualToString:[UIPasteboard generalPasteboard].string]) {
         
@@ -109,8 +103,16 @@
         [self.tableView reloadData];
     }
 }
+
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     self.preferredContentSize = CGSizeMake(0, 200);
+}
+
+-(NSMutableArray *)getSavedClipArr {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [userDefaults objectForKey:@"clipArr"];
+    NSMutableArray *clipArr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return clipArr;
 }
 
 #pragma mark - ncwedgetproviding
