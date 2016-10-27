@@ -17,6 +17,8 @@
 		B0424B201DC0BB890076CC54 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0424B1F1DC0BB890076CC54 /* TodayViewController.m */; };
 		B0424B231DC0BB890076CC54 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0424B211DC0BB890076CC54 /* MainInterface.storyboard */; };
 		B0424B271DC0BB890076CC54 /* ClipBoardExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0424B191DC0BB890076CC54 /* ClipBoardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B06F10171DC1A1F600D3D651 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06F10161DC1A1F600D3D651 /* KeyboardViewController.m */; };
+		B06F101B1DC1A1F600D3D651 /* ClipKeyBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B06F10131DC1A1F600D3D651 /* ClipKeyBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B0424B181DC0BB890076CC54;
 			remoteInfo = ClipBoardExtension;
+		};
+		B06F10191DC1A1F600D3D651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0424AF31DC0BB330076CC54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B06F10121DC1A1F600D3D651;
+			remoteInfo = ClipKeyBoard;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -37,6 +46,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				B0424B271DC0BB890076CC54 /* ClipBoardExtension.appex in Embed App Extensions */,
+				B06F101B1DC1A1F600D3D651 /* ClipKeyBoard.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +70,10 @@
 		B0424B1F1DC0BB890076CC54 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		B0424B221DC0BB890076CC54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B0424B241DC0BB890076CC54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B06F10131DC1A1F600D3D651 /* ClipKeyBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClipKeyBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B06F10151DC1A1F600D3D651 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		B06F10161DC1A1F600D3D651 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		B06F10181DC1A1F600D3D651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B06F10101DC1A1F600D3D651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,6 +107,7 @@
 			children = (
 				B0424AFD1DC0BB330076CC54 /* ClipBoard */,
 				B0424B1D1DC0BB890076CC54 /* ClipBoardExtension */,
+				B06F10141DC1A1F600D3D651 /* ClipKeyBoard */,
 				B0424B1A1DC0BB890076CC54 /* Frameworks */,
 				B0424AFC1DC0BB330076CC54 /* Products */,
 			);
@@ -96,6 +118,7 @@
 			children = (
 				B0424AFB1DC0BB330076CC54 /* ClipBoard.app */,
 				B0424B191DC0BB890076CC54 /* ClipBoardExtension.appex */,
+				B06F10131DC1A1F600D3D651 /* ClipKeyBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +166,16 @@
 			path = ClipBoardExtension;
 			sourceTree = "<group>";
 		};
+		B06F10141DC1A1F600D3D651 /* ClipKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				B06F10151DC1A1F600D3D651 /* KeyboardViewController.h */,
+				B06F10161DC1A1F600D3D651 /* KeyboardViewController.m */,
+				B06F10181DC1A1F600D3D651 /* Info.plist */,
+			);
+			path = ClipKeyBoard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +192,7 @@
 			);
 			dependencies = (
 				B0424B261DC0BB890076CC54 /* PBXTargetDependency */,
+				B06F101A1DC1A1F600D3D651 /* PBXTargetDependency */,
 			);
 			name = ClipBoard;
 			productName = ClipBoard;
@@ -182,6 +216,23 @@
 			productReference = B0424B191DC0BB890076CC54 /* ClipBoardExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		B06F10121DC1A1F600D3D651 /* ClipKeyBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B06F101E1DC1A1F700D3D651 /* Build configuration list for PBXNativeTarget "ClipKeyBoard" */;
+			buildPhases = (
+				B06F100F1DC1A1F600D3D651 /* Sources */,
+				B06F10101DC1A1F600D3D651 /* Frameworks */,
+				B06F10111DC1A1F600D3D651 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClipKeyBoard;
+			productName = ClipKeyBoard;
+			productReference = B06F10131DC1A1F600D3D651 /* ClipKeyBoard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +248,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					B0424B181DC0BB890076CC54 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8SJXRJ78CW;
+						ProvisioningStyle = Automatic;
+					};
+					B06F10121DC1A1F600D3D651 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 8SJXRJ78CW;
 						ProvisioningStyle = Automatic;
@@ -218,6 +274,7 @@
 			targets = (
 				B0424AFA1DC0BB330076CC54 /* ClipBoard */,
 				B0424B181DC0BB890076CC54 /* ClipBoardExtension */,
+				B06F10121DC1A1F600D3D651 /* ClipKeyBoard */,
 			);
 		};
 /* End PBXProject section */
@@ -238,6 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0424B231DC0BB890076CC54 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B06F10111DC1A1F600D3D651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +326,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B06F100F1DC1A1F600D3D651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B06F10171DC1A1F600D3D651 /* KeyboardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -269,6 +341,11 @@
 			isa = PBXTargetDependency;
 			target = B0424B181DC0BB890076CC54 /* ClipBoardExtension */;
 			targetProxy = B0424B251DC0BB890076CC54 /* PBXContainerItemProxy */;
+		};
+		B06F101A1DC1A1F600D3D651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B06F10121DC1A1F600D3D651 /* ClipKeyBoard */;
+			targetProxy = B06F10191DC1A1F600D3D651 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -394,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SJXRJ78CW;
 				INFOPLIST_FILE = ClipBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,6 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SJXRJ78CW;
 				INFOPLIST_FILE = ClipBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +496,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8SJXRJ78CW;
 				INFOPLIST_FILE = ClipBoardExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard.ClipBoardExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,8 +509,35 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8SJXRJ78CW;
 				INFOPLIST_FILE = ClipBoardExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard.ClipBoardExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B06F101C1DC1A1F700D3D651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8SJXRJ78CW;
+				INFOPLIST_FILE = ClipKeyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard.ClipKeyBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B06F101D1DC1A1F700D3D651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8SJXRJ78CW;
+				INFOPLIST_FILE = ClipKeyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.ichenwin.ClipBoard.ClipKeyBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -455,12 +562,22 @@
 				B0424B141DC0BB330076CC54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0424B281DC0BB890076CC54 /* Build configuration list for PBXNativeTarget "ClipBoardExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0424B291DC0BB890076CC54 /* Debug */,
 				B0424B2A1DC0BB890076CC54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B06F101E1DC1A1F700D3D651 /* Build configuration list for PBXNativeTarget "ClipKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B06F101C1DC1A1F700D3D651 /* Debug */,
+				B06F101D1DC1A1F700D3D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

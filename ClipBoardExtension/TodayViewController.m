@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *clipArr = [self getSavedClipArr];
+    self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 120, [clipArr count] * 30);
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -58,21 +60,50 @@
             UITableViewCell *cell = reversedArray[indexPath.row];
             return cell;
         } else {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 375, 30)];
+            
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 20, 30)];
+//            [cell setTranslatesAutoresizingMaskIntoConstraints:NO];
+//            //layout 子view
+//            //子view的上边缘离父view的上边缘40个像素
+//            NSLayoutConstraint *contraint1 = [NSLayoutConstraint constraintWithItem:cell attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+//            //子view的左边缘离父view的左边缘40个像素
+//            NSLayoutConstraint *contraint2 = [NSLayoutConstraint constraintWithItem:cell attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+//            //子view的下边缘离父view的下边缘40个像素
+//            NSLayoutConstraint *contraint3 = [NSLayoutConstraint constraintWithItem:cell attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+//            //子view的右边缘离父view的右边缘40个像素
+//            NSLayoutConstraint *contraint4 = [NSLayoutConstraint constraintWithItem:cell attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+//            //把约束添加到父视图上
+//            NSArray *array = [NSArray arrayWithObjects:contraint1, contraint2, contraint3, contraint4, nil];
+//            [self.tableView addConstraints:array];
+            [cell.leftAnchor constraintEqualToAnchor:self.tableView.leftAnchor].active = YES;
             return cell;
         }
     } else {
         if (indexPath.row == 0) {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 375, 30)];
+            UITableViewCell *cell = [[UITableViewCell alloc] init];//WithFrame:CGRectMake(0, 0, 375, 30)];
             cell.textLabel.text = [UIPasteboard generalPasteboard].string;
             
-            UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(310, 0, 30, 30)];
+            UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 100, 0, 30, 30)];
             [addBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             [addBtn setTitle:@"+" forState:UIControlStateNormal];
             [addBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addAction:)];
             [addBtn addGestureRecognizer:tap];
             [cell addSubview:addBtn];
+            
+//            [addBtn setTranslatesAutoresizingMaskIntoConstraints:NO];
+//            //layout 子view
+//            //子view的上边缘离父view的上边缘40个像素
+//            NSLayoutConstraint *contraint1 = [NSLayoutConstraint constraintWithItem:addBtn attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+//            //子view的左边缘离父view的左边缘40个像素
+////            NSLayoutConstraint *contraint2 = [NSLayoutConstraint constraintWithItem:addBtn attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+//            //子view的下边缘离父view的下边缘40个像素
+//            NSLayoutConstraint *contraint3 = [NSLayoutConstraint constraintWithItem:addBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+//            //子view的右边缘离父view的右边缘40个像素
+//            NSLayoutConstraint *contraint4 = [NSLayoutConstraint constraintWithItem:addBtn attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:10.0];
+//            //把约束添加到父视图上
+//            NSArray *array = [NSArray arrayWithObjects:contraint1, contraint3, contraint4, nil];
+//            [cell addConstraints:array];
             
             return cell;
         } else {
@@ -83,7 +114,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return 30;
 }
 
 -(void)addAction:(UIGestureRecognizer *)sender {
@@ -92,7 +123,7 @@
     if ([lastCell.textLabel.text isEqualToString:[UIPasteboard generalPasteboard].string]) {
         
     } else {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 375, 30)];
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 20, 30)];
         cell.textLabel.text = [UIPasteboard generalPasteboard].string;
         NSMutableArray *cellArr = [[NSMutableArray alloc] initWithArray:clipArr];
         [cellArr addObject:cell];
@@ -104,9 +135,9 @@
     }
 }
 
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    self.preferredContentSize = CGSizeMake(0, 200);
-}
+//-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+//    self.preferredContentSize = CGSizeMake(0, 200);
+//}
 
 -(NSMutableArray *)getSavedClipArr {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
